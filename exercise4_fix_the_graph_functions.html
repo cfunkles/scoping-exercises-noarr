@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		/*
+			Exercise 4
+
+			There are many errors in the functions below! Each of the
+			"bad" functions (square, squareRoot, sum, and difference) need
+			to be changed so that they are pure functions (only local vars,
+			return a value at the end).
+
+			There are also some errors in the testing section that you will need
+			to fix.
+
+		*/
+
+		function square(a) {
+			return a * a;
+			// variable a would have had access to wrong values, square needed a parameter
+		}
+
+		function squareRoot(a) {
+			return Math.sqrt(a);
+			//a needs to be a parameter, argument will be the sum functions value.
+		}
+
+		function sum(a, b) {
+			//needed a & b to be local variables. paramaters will take arguments from two square functions
+			return a + b;
+			//needed to return not console.log
+		}
+
+		function difference(a, b) {
+			return a - b;
+			// inner most function. parameters get their agruments from the call.
+		}
+
+		function distance(x1, y1, x2, y2) {
+			// no errors in this function - do not modify
+			return (
+				squareRoot(
+					sum(
+						square(difference(x2, x1)),
+						square(difference(y2, y1))
+					)
+				)
+			);
+		}
+
+		// Tests (with errors! You'll need to change these...)
+
+		// distance between (0, 0) and (4, 5)
+		var result = distance(0, 0, 4, 5);
+		console.log(result);//6.4031242374328485
+
+		// distance between (8, -3) and (4, 3)
+		var result = distance(8, -3, 4, 3);
+		console.log(result);//7.211102550927978
+	</script>
+</body>
+
+</html>
